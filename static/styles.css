@@ -1,0 +1,380 @@
+/* ==========================
+   Base / Tokens
+   ==========================
+*/
+:root {
+    --bg-color: #0F172A;       /* Main dark background */
+    --text-color: #F8FAFC;     /* Off-white text */
+    --accent-color: #3B82F6;   /* Modern Blue for active links */
+    --bg-2: linear-gradient(180deg, #303e5e,#0F172A ); /* Teal Card Gradient */
+    --muted: rgba(255, 255, 255, 0.06);
+    --container-max: 1100px;
+    --radius: 12px;
+    --transition: 0.25s ease;
+}
+
+/* Sensible box-sizing */
+*, *::before, *::after { 
+    box-sizing: border-box; 
+}
+
+/* Page base */
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px 16px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Modern Font Fix */
+    color: var(--text-color);
+    background-color: var(--bg-color); /* Main Slate Background */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* ==========================
+   Navbar
+   ==========================
+*/
+.navbar {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 10px auto 30px;
+    padding: 12px 20px;
+    background: rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.navbar ul li {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.navbar ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 8px;
+    transition: background-color var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.navbar ul li a:hover,
+.navbar ul li a:focus {
+    background-color: var(--muted);
+}
+
+/* Active Navbar Link */
+.navbar ul li a.active {
+    background: var(--accent-color);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); 
+}
+
+/* ==========================
+   Profile Image / Avatar
+   ==========================
+*/
+.img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.03);
+    flex: 0 0 auto;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================
+   Skills / Hero Section
+   ==========================
+*/
+.skill {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto 32px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.skill-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.section-title {
+    color: var(--accent-color);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin: 0;
+}
+
+.text {
+    font-size: 20px;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 600;
+}
+
+.divider{
+    height: 35px;
+    width: 5px;
+    border-radius: 15px;
+    background-color: rgb(184, 223, 140);
+    margin: 10px 0;
+    margin-right: 15px;
+    margin-left: 15px; 
+    display: block;
+}
+
+/* ==========================
+   Projects / Cards
+   ==========================
+*/
+.proj {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    justify-items: center;
+}
+
+
+.cards {
+    position: relative; /* Crucial for the absolute positioning of the hover info */
+    background: var(--bg-2);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform var(--transition), box-shadow var(--transition);
+    width: 100%;
+    text-decoration: none; 
+    color: var(--text-color);
+    overflow: hidden; /* CRITICAL: This hides the text when it is pushed down */
+}
+/* Base Card - Now acts as the boundary for the animation */
+
+.cards:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px var(--muted); 
+}
+
+.card-img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.card-title {
+    margin: 8px 0 0 0;
+    font-size: 20px;
+    font-weight: 700;
+    z-index: 1; /* Keeps the title above the blur if you want it visible */
+}
+
+
+/* The vertical line running down the left side */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 20px; 
+    width: 2px;
+    background: rgba(255, 255, 255, 0.2); /* Made it slightly brighter */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 60px; /* Pushes the card to the right to make room for the line */
+}
+
+/* The glowing dot on the timeline */
+.timeline-marker {
+    position: absolute;
+    left: 13px; 
+    top: 24px; 
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    border: 4px solid var(--bg-color); 
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    z-index: 1;
+}
+
+/* Future dot (empty circle) */
+.timeline-marker.marker-future {
+    background: transparent;
+    border: 2px dashed var(--accent-color);
+    box-shadow: none;
+}
+
+/* ==========================
+   Contact Page UI
+   ==========================
+*/
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto; /* Centers the form on the page */
+    background: rgba(255, 255, 255, 0.03); /* Very faint glassy background */
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Perfectly spaces out the inputs */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Space between label and input */
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.5px;
+}
+
+/* Styling the input boxes */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(0, 0, 0, 0.3); /* Dark input background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Placeholder text color */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* The glow effect when you click inside an input */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); 
+}
+
+/* The Submit Button */
+.submit-btn {
+    margin-top: 10px;
+    padding: 16px 24px;
+    background: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #2563EB; /* Slightly darker blue on hover */
+    transform: translateY(-2px); /* Button lifts up */
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* ==========================
+   Footer
+   ==========================
+*/
+.footer {
+    max-width: var(--container-max);
+    margin: 40px auto 20px;
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+/* ==========================
+   Responsive Breakpoints
+   ==========================
+*/
+@media (max-width: 900px) {
+    .skill { 
+        flex-direction: column-reverse; /* Stacks text below image */
+        text-align: center; 
+    }
+    .skill-left { 
+        align-items: center; 
+    }
+    .img { 
+        width: 180px; 
+        height: 180px; 
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar { padding: 12px; }
+    .navbar ul { justify-content: center; gap: 10px; }
+    .section-title { font-size: 24px; }
+    .text { font-size: 18px; }
+    .proj { grid-template-columns: 1fr; }
+}

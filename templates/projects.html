@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="section-title" style="text-align: center; font-size: 36px; margin-bottom: 40px;">Featured Projects</h1>
+
+<div class="proj">
+    
+    <a href="https://github.com/ds27sam-del/Medical-Data-Management-And-Analysis-2.0" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/1.png') }}') no-repeat center center / cover;"></div>
+        <h3 class="card-title">Medical Data Analysis 2.0</h3>
+        <p class="card-desc">A Python application for managing patient records with integrated data visualization using Matplotlib.</p>
+    </a>
+
+    <a href="https://github.com/ds27sam-del/Student_Task_Manager-2.0" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/2.png') }}') no-repeat top center / cover;"></div>
+        <h3 class="card-title">Student Task Manager 2.0</h3>
+        <p class="card-desc">A comprehensive productivity tool featuring a GUI for students to organize assignments and track academic progress.</p>
+    </a>
+
+    <a href="https://github.com/ds27sam-del/Sales-Data-Management-System-2.0" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/3.svg') }}') no-repeat center center / contain; background-color: #ffffff;"></div>
+        <h3 class="card-title">Sales Management System</h3>
+        <p class="card-desc">A business-focused system designed for efficient inventory tracking and automated revenue graph generation.</p>
+    </a>
+
+</div>
+
+<hr style="border: 0; height: 1px; background: rgba(255,255,255,0.1); margin: 60px auto; max-width: 80%;">
+
+<h2 class="section-title" style="text-align: center; font-size: 28px; margin-bottom: 40px;">More Projects</h2>
+
+<div class="proj">
+
+    <a href="https://github.com/ds27sam-del/College-Management-System" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/4.png') }}') no-repeat center center / cover;"></div>
+        <h3 class="card-title">College Management System</h3>
+        <p class="card-desc">A centralized database solution for managing student enrollment and departmental academic records.</p>
+    </a>
+
+    <a href="https://github.com/ds27sam-del/CPP-Logic-and-Algorithms" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/5.png') }}') no-repeat center center / cover;"></div>
+        <h3 class="card-title">CPP Logic & Algorithms</h3>
+        <p class="card-desc">A collection of core programming challenges and algorithms demonstrating fundamental C++ proficiency.</p>
+    </a>
+
+    <a href="https://github.com/ds27sam-del/Library-Management-System" target="_blank" rel="noopener noreferrer" class="cards">
+        <div class="card-img" style="background: url('{{ url_for('static', filename='images/6.png') }}') no-repeat center center / cover;"></div>
+        <h3 class="card-title">Library Management System</h3>
+        <p class="card-desc">A secure Python application designed to manage book inventories and user borrowing records effectively.</p>
+    </a>
+
+</div>
+
+{% endblock %}

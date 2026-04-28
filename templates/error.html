@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Error {{ code }} — My Portfolio{% endblock %}
+
+{% block content %}
+<section class="error">
+    <h1>Error {{ code }}</h1>
+    <p>{{ message }}</p>
+    <p><a href="{{ url_for('index') }}">Return home</a></p>
+</section>
+{% endblock %}
