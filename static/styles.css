@@ -3,14 +3,20 @@
    ==========================
 */
 :root {
-    --bg-color: #0F172A;       /* Main dark background */
-    --text-color: #F8FAFC;     /* Off-white text */
-    --accent-color: #3B82F6;   /* Modern Blue for active links */
-    --bg-2: linear-gradient(180deg, #303e5e,#0F172A ); /* Teal Card Gradient */
-    --muted: rgba(255, 255, 255, 0.06);
+    /* Metallic Black, Light Pink, Brown Color Palette */
+    --bg-color: #000000;
+    --bg-linear: linear-gradient(680deg, #635968 0%,#777352 50%, #39555a 100%);
+    --text-color: #F5F5F5;
+    --accent-color: linear-gradient(680deg,#635968 0%,#777352 50%, #39555a 100%);
+    --accent-hover: rgba(161, 222, 226, 0.349);
+    --secondary: #a974c2b2;         /* Brown */
+    --secondary-light: #b6cc829a;   /* Light Brown */
+    --bg-2: linear-gradient(140deg,#635968 0%,#777352 50%, #39555a 100%);
+    --muted: rgba(255, 182, 193, 0.08);
     --container-max: 1100px;
     --radius: 12px;
     --transition: 0.25s ease;
+    --text-decoration-style: double;
 }
 
 /* Sensible box-sizing */
@@ -23,9 +29,10 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 24px 16px;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Modern Font Fix */
+    font-family: cursive,'Times New Roman', Times, serif;
     color: var(--text-color);
-    background-color: var(--bg-color); /* Main Slate Background */
+    background: var(--bg-linear);
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -45,12 +52,21 @@ body {
     max-width: var(--container-max);
     margin: 10px auto 30px;
     padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.4); 
-    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 999px;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.divider{
+    height: 35px;
+    width: 5px;
+    border-radius: 15px;
+    background-color: rgb(215, 223, 140);
+    margin: 10px 0;
+    margin-right: 15px;
+    margin-left: 15px; 
+    display: block;
 }
 
 .navbar ul {
@@ -65,7 +81,7 @@ body {
 
 .navbar ul li {
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 500;
     letter-spacing: 0.5px;
 }
@@ -87,8 +103,9 @@ body {
 .navbar ul li a.active {
     background: var(--accent-color);
     color: #ffffff;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4); 
+    box-shadow: 0 4px 12px rgba(171, 233, 238, 0.4); 
 }
+
 
 /* ==========================
    Profile Image / Avatar
@@ -103,7 +120,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
     background-color: rgba(255, 255, 255, 0.03);
     flex: 0 0 auto;
 }
@@ -125,19 +142,21 @@ body {
     margin: 0 auto 32px;
     padding: 32px;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    gap: 32px;
+    justify-content: center;
+    gap: 20px;
     background: rgba(255, 255, 255, 0.02);
     border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.04);
+    border: 3px solid rgba(233, 217, 217, 0.205);
 }
 
 .skill-left {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-evenly;
+    gap: 15px;
     align-items: flex-start;
 }
 
@@ -146,25 +165,19 @@ body {
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 0.5px;
+    
     margin: 0;
 }
 
 .text {
-    font-size: 20px;
+    font-size: 25px;
     color: var(--text-color);
     margin: 0;
     font-weight: 600;
 }
 
-.divider{
-    height: 35px;
-    width: 5px;
-    border-radius: 15px;
-    background-color: rgb(184, 223, 140);
-    margin: 10px 0;
-    margin-right: 15px;
-    margin-left: 15px; 
-    display: block;
+p{
+    font-size: 20px;
 }
 
 /* ==========================
@@ -181,7 +194,7 @@ body {
     justify-items: center;
 }
 
-
+/* Base Card - Now acts as the boundary for the animation */
 .cards {
     position: relative; /* Crucial for the absolute positioning of the hover info */
     background: var(--bg-2);
@@ -197,8 +210,8 @@ body {
     color: var(--text-color);
     overflow: hidden; /* CRITICAL: This hides the text when it is pushed down */
 }
-/* Base Card - Now acts as the boundary for the animation */
 
+/* The card lifts and glows yellow on hover */
 .cards:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px var(--muted); 
@@ -219,6 +232,60 @@ body {
     z-index: 1; /* Keeps the title above the blur if you want it visible */
 }
 
+/* =========================================
+   The Hover Animation Magic
+   ========================================= */
+
+/* The hidden text container */
+.card-hover-info {
+    position: absolute;
+    bottom: -100%; /* Pushes the text completely outside the bottom of the card */
+    left: 0;
+    width: 100%;
+    height: 100%; /* Covers the whole card when it slides up */
+    background: rgba(18, 18, 18, 0.92);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 30px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: bottom 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.card-desc {
+    display: none; /* Hidden by default */
+}
+
+/* 
+===============================
+    Time-line / journey
+===============================
+ */
+
+/* Show card description in timeline items (no hover wrapper) */
+.timeline-content .card-desc {
+    display: block;
+    margin: 8px 0 0 0;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+.card-hover-info .card-desc {
+    display: block;
+    margin: 0;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 1.6;
+}
+
+/* The Trigger: When you hover the card, slide the info up to 0 */
+.cards:hover .card-hover-info {
+    bottom: 0; 
+}
 
 /* The vertical line running down the left side */
 .timeline::before {
@@ -247,7 +314,7 @@ body {
     border-radius: 50%;
     background: var(--accent-color);
     border: 4px solid var(--bg-color); 
-    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 10px rgb(168, 165, 148);
     z-index: 1;
 }
 
@@ -262,14 +329,15 @@ body {
    Contact Page UI
    ==========================
 */
+
 .contact-wrapper {
     max-width: 600px;
-    margin: 0 auto; /* Centers the form on the page */
-    background: rgba(255, 255, 255, 0.03); /* Very faint glassy background */
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.03);
     padding: 40px;
     border-radius: var(--radius);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(255, 182, 193, 0.05);
 }
 
 .contact-form {
@@ -316,15 +384,15 @@ body {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); 
+    box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.2); 
 }
 
 /* The Submit Button */
 .submit-btn {
     margin-top: 10px;
     padding: 16px 24px;
-    background: var(--accent-color);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary));
+    color: #0a0a0a;
     border: none;
     border-radius: 8px;
     font-size: 16px;
@@ -334,9 +402,48 @@ body {
 }
 
 .submit-btn:hover {
-    background-color: #2563EB; /* Slightly darker blue on hover */
-    transform: translateY(-2px); /* Button lifts up */
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, var(--accent-hover), var(--secondary-light));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 182, 193, 0.4);
+}
+
+/* ==========================
+   Technology/ own life
+   ==========================
+*/
+
+/* Container to hold the cards */
+.cards-container {
+    width: 90%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    display: grid;
+    /* This creates a classy 3-column layout that stays responsive */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; /* Increased gap for a "roomy" feel */
+    padding: 20px 0;
+}
+
+/* Individual Card Styling */
+.card {
+    padding: 40px 30px; /* Internal spacing */
+    border-radius: 15px; /* Soft corners */
+    transition: all 0.4s ease; /* Smooth hover */
+    text-align: center;
+    color: white;
+}
+
+.block h3:not(.journey h3) {
+    text-align: center;
+    font-size: 42px; /* Slightly larger for impact */
+    color: #a33f3f;
+    margin-top: 100px; /* 150px was a bit too much, let's try 100px */
+    letter-spacing: 1px;
+}
+/* Classy Hover Effect */
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
 
 /* ==========================

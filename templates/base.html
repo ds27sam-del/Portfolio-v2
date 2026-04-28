@@ -15,6 +15,7 @@
     
     <header>
         <nav class="navbar" role="navigation" aria-label="Primary navigation">
+            <div class="logo"></div>
             <ul>
                 <li><a href="{{ url_for('index') }}" class="{% if active=='home' %}active{% endif %}" aria-current="{% if active=='home' %}page{% endif %}">Home</a></li>
                 <li><a href="{{ url_for('projects') }}" class="{% if active=='projects' %}active{% endif %}">Projects</a></li>
@@ -22,6 +23,10 @@
                 <li><a href="{{ url_for('journey') }}" class="{% if active=='journey' %}active{% endif %}">Journey</a></li>
         
                 <li><a href="{{ url_for('contacts') }}" class="{% if active=='contacts' %}active{% endif %}">Contact</a></li>
+            </ul>
+            <div class="divider"></div>
+            <ul>
+                <li><a href="{{ url_for('tech') }}" class="{% if active=='Why Technology' %}active{% endif %}">Why Technology</a></li>
             </ul>
         </nav>
     </header>

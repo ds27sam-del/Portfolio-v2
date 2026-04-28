@@ -43,6 +43,10 @@ def projects():
     # And passing your projects data here!
     return render_template('projects.html', active='projects')
 
+@app.route('/Tech')
+def tech():
+    return render_template('Tech.html', active='Why Technology')
+
 @app.route('/contacts', methods=['GET', 'POST'])
 def contacts():
     if request.method == 'POST':
