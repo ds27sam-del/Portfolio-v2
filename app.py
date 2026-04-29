@@ -51,6 +51,27 @@ PROJECTS = [
         'image': 'images/basics.png', 
         'url': 'https://github.com/ds27sam-del/struct-in-c' 
     },
+    { 
+        'id': 7, 
+        'title': 'Cross-Language Arithmetic Engine', 
+        'description': 'A command-line application implemented in Python, C, and C++ demonstrating advanced memory routing and function pointers.', 
+        'image': 'images/7.png', 
+        'url': 'https://github.com/ds27sam-del/Calculator' 
+    },
+    { 
+        'id': 8, 
+        'title': 'Dynamic N-Ary Tree Structure', 
+        'description': 'A memory-safe, non-linear data structure utilizing STL vectors and custom post-order destructors to prevent memory leaks.', 
+        'image': 'images/8.png', 
+        'url': 'https://github.com/ds27sam-del/Vector-in-cpp' 
+    },
+    { 
+        'id': 9, 
+        'title': 'In-Place Bitwise Algorithms', 
+        'description': 'Advanced C++ algorithms demonstrating memory-efficient variable manipulation using Bitwise XOR to prevent integer overflow.', 
+        'image': 'images/9.png', 
+        'url': 'https://github.com/ds27sam-del/Swap-values-a-b.git' 
+    },
 ]
 
 # Path where contact messages are stored

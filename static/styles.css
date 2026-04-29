@@ -13,8 +13,8 @@
 --bg-color: #000000;
 --bg-linear: linear-gradient(680deg, #635968 0%,#777352 50%, #39555a 100%);
 --text-color: #F5F5F5;
---accent-color: linear-gradient(680deg,#635968 0%,#777352 50%, #39555a 100%);
---accent-hover: rgba(161, 222, 226, 0.349);
+--accent-color: linear-gradient(850deg,#51727a 20%, #dad15e 80%);
+--accent-hover: rgba(149, 213, 218, 0.63);
 --secondary: #a974c2b2;         /* Brown */
 --secondary-light: #b6cc829a;   /* Light Brown */
 --bg-2: linear-gradient(140deg,#635968 0%,#777352 50%, #39555a 100%);
@@ -227,6 +227,7 @@ p{
     width: 100%;
     height: 150px;
     object-fit: cover;
+    object-position: center;
     border-radius: 8px;
     background-color: rgba(0,0,0,0.5);
 }
@@ -431,23 +432,25 @@ p{
 }
 
 /* Individual Card Styling */
-.card {
+.cards {
     padding: 40px 30px; /* Internal spacing */
     border-radius: 15px; /* Soft corners */
     transition: all 0.4s ease; /* Smooth hover */
     text-align: center;
     color: white;
+    font-size: 22px;
+    background-color: var(--accent-color);
 }
 
 .block h3:not(.journey h3) {
     text-align: center;
     font-size: 42px; /* Slightly larger for impact */
-    color: #a33f3f;
+    color: #182738b4;
     margin-top: 100px; /* 150px was a bit too much, let's try 100px */
     letter-spacing: 1px;
 }
 /* Classy Hover Effect */
-.card:hover {
+.cards:hover {
     transform: translateY(-15px);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
 }
