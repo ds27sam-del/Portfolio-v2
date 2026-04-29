@@ -9,12 +9,48 @@ app.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET', 'dev-secret-change-me'
 # Simple in-memory project data — replace with real data or a DB as needed
 # Images for projects are expected to live under "static/images/" — update these filenames or replace with a DB later.
 PROJECTS = [
-    { 'id': 1, 'title': 'Medical Data Analysis 2.0', 'description': 'A Python application for managing patient records with integrated data visualization using Matplotlib.', 'image': 'images/1.png', 'url': 'https://github.com/ds27sam-del/Medical-Data-Management-And-Analysis-2.0' },
-    { 'id': 2, 'title': 'Student Task Manager 2.0', 'description': 'A comprehensive productivity tool featuring a GUI for students to organize assignments and track academic progress.', 'image': 'images/2.png', 'url': 'https://github.com/ds27sam-del/Student_Task_Manager-2.0' },
-    { 'id': 3, 'title': 'Sales Management System', 'description': 'A business-focused system designed for efficient inventory tracking and automated revenue graph generation.', 'image': 'images/3.svg', 'url': 'https://github.com/ds27sam-del/Sales-Data-Management-System-2.0' },
-    { 'id': 4, 'title': 'College Management System', 'description': 'A centralized database solution for managing student enrollment and departmental academic records.', 'image': 'images/4.png', 'url': 'https://github.com/ds27sam-del/College-Data-Management-System' },
-    { 'id': 5, 'title': 'CPP Logic & Algorithms', 'description': 'A collection of core programming challenges and algorithms demonstrating fundamental C++ proficiency.', 'image': 'images/5.png', 'url': 'https://github.com/ds27sam-del/CPP-Logic-and-Algorithms' },
-    { 'id': 6, 'title': 'Library Management System', 'description': 'A secure Python application designed to manage book inventories and user borrowing records effectively.', 'image': 'images/6.png', 'url': 'https://github.com/ds27sam-del/Projects' },
+    { 
+        'id': 1, 
+        'title': 'Medical Data Management 2.0', 
+        'description': 'Advanced system for patient record persistence using binary I/O and Python visualization for healthcare metrics.', 
+        'image': 'images/medical.png', 
+        'url': 'https://github.com/ds27sam-del/Medical-Database-System' 
+    },
+    { 
+        'id': 2, 
+        'title': 'Intelligent Task Manager', 
+        'description': 'A robust productivity suite utilizing Flask and Tkinter for real-time task tracking and academic organization.', 
+        'image': 'images/task.png', 
+        'url': 'https://github.com/ds27sam-del/Task-Management' 
+    },
+    { 
+        'id': 3, 
+        'title': 'Sales & Inventory Architect', 
+        'description': 'Business logic engine for automated revenue reporting, inventory tracking, and dynamic data representation.', 
+        'image': 'images/sales.svg', 
+        'url': 'https://github.com/ds27sam-del/Sales-Database-System' 
+    },
+    { 
+        'id': 4, 
+        'title': 'College Academic System', 
+        'description': 'Centralized institutional database managing multi-departmental records with secure authentication protocols.', 
+        'image': 'images/college.png', 
+        'url': 'https://github.com/ds27sam-del/College-Database-System' 
+    },
+    { 
+        'id': 5, 
+        'title': 'C++ Algorithm Engine', 
+        'description': 'A master repository of N-ary tree structures, pointer arithmetic, and cross-language arithmetic logic.', 
+        'image': 'images/cpp.png', 
+        'url': 'https://github.com/ds27sam-del/database-system-in-cpp' 
+    },
+    { 
+        'id': 6, 
+        'title': 'Core CS Fundamentals', 
+        'description': 'Comprehensive logic implementations covering recursion, bitwise operations, and memory-efficient data swapping.', 
+        'image': 'images/basics.png', 
+        'url': 'https://github.com/ds27sam-del/struct-in-c' 
+    },
 ]
 
 # Path where contact messages are stored
@@ -28,7 +64,6 @@ os.makedirs(DATA_DIR, exist_ok=True)
 def inject_year():
     return { 'current_year': datetime.utcnow().year }
 
-@app.route('/')
 @app.route('/')
 def index():
     return render_template('index.html', active='home')
@@ -46,6 +81,21 @@ def projects():
 @app.route('/Tech')
 def tech():
     return render_template('Tech.html', active='Why Technology')
+
+@app.route('/Story')
+@app.route('/story')
+def story():
+    return render_template('story.html', active='Story')
+
+@app.route('/Experience.html')
+@app.route('/experience')
+def Experience():
+    return render_template('Experience.html', active='Experience')
+
+@app.route('/Thoughts')
+@app.route('/thoughts')
+def Thoughts():
+    return render_template('Thoughts.html', active='Thoughts')
 
 @app.route('/contacts', methods=['GET', 'POST'])
 def contacts():

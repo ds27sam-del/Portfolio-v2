@@ -1,22 +1,28 @@
 /* ==========================
-   Base / Tokens
+   Refactored Styles
    ==========================
 */
 :root {
-    /* Metallic Black, Light Pink, Brown Color Palette */
-    --bg-color: #000000;
-    --bg-linear: linear-gradient(680deg, #635968 0%,#777352 50%, #39555a 100%);
-    --text-color: #F5F5F5;
-    --accent-color: linear-gradient(680deg,#635968 0%,#777352 50%, #39555a 100%);
-    --accent-hover: rgba(161, 222, 226, 0.349);
-    --secondary: #a974c2b2;         /* Brown */
-    --secondary-light: #b6cc829a;   /* Light Brown */
-    --bg-2: linear-gradient(140deg,#635968 0%,#777352 50%, #39555a 100%);
-    --muted: rgba(255, 182, 193, 0.08);
-    --container-max: 1100px;
-    --radius: 12px;
-    --transition: 0.25s ease;
-    --text-decoration-style: double;
+    --primary-color: #3b1f0b;
+    --secondary-color: #5c3012;
+    --tertiary-color: #8b4513;
+    --quaternary-color: #a0522d;
+
+
+/* Metallic Black, Light Pink, Brown Color Palette */
+--bg-color: #000000;
+--bg-linear: linear-gradient(680deg, #635968 0%,#777352 50%, #39555a 100%);
+--text-color: #F5F5F5;
+--accent-color: linear-gradient(680deg,#635968 0%,#777352 50%, #39555a 100%);
+--accent-hover: rgba(161, 222, 226, 0.349);
+--secondary: #a974c2b2;         /* Brown */
+--secondary-light: #b6cc829a;   /* Light Brown */
+--bg-2: linear-gradient(140deg,#635968 0%,#777352 50%, #39555a 100%);
+--muted: rgba(255, 182, 193, 0.08);
+--container-max: 1100px;
+--radius: 12px;
+--transition: 0.25s ease;
+--text-decoration-style: double;
 }
 
 /* Sensible box-sizing */
