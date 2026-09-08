@@ -3,17 +3,17 @@
    ==========================
 */
 :root {
---bg-color: #00395f;
+--bg-color: #534c28c9;
 /* --bg-linear: linear-gradient(680deg, #635968 0%,#777352 50%, #39555a 100%); */
---text-color: #EAEAEA;
+--text-color: #F5FFFA;
 /* for nav button */
---accent-color: #73a5d4; 
+--accent-color: #FFDAB9; 
 /* for contact button */
---accent-hover: rgb(114, 156, 196);
---secondary: #73a0d4;         /* Brown */
---secondary-light: #a0aff1;   /* Light Brown */
+--accent-hover: #aaaaaac4;
+--secondary: #D4AF37; 
+--secondary-light: #f3e1a4;
 /* cards */
---bg-2: linear-gradient(180deg,#13435e 0%,#0b1d37 100%);
+--bg-2: linear-gradient(600deg,#2F2F2F 0%,#e2d5b9 100%);
 --muted: rgba(255, 255, 255, 0.137);
 --container-max: 1100px;
 --radius: 12px;
@@ -32,6 +32,7 @@ body {
     margin: 0;
     padding: 24px 16px;
     font-family:Georgia,Arial, Helvetica, sans-serif;
+    
     color: var(--text-color);
     background: var(--bg-color);
     background-attachment: fixed;
